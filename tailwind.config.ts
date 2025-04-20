@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,29 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                // Theme-specific colors
+                hopeful: {
+                    background: '#FFFAEB',
+                    primary: '#F9D923',
+                    secondary: '#FFE066',
+                    accent: '#36454F',
+                    text: '#36454F'
+                },
+                romantic: {
+                    background: '#FEF2F2',
+                    primary: '#D14D72',
+                    secondary: '#FFABAB',
+                    accent: '#893168',
+                    text: '#4A0404'
+                },
+                funny: {
+                    background: '#ECFDF5',
+                    primary: '#39FF14',
+                    secondary: '#00FFFF',
+                    accent: '#FF3131',
+                    text: '#333333'
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +107,38 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                // Custom animations
+                'fade-in': {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' }
+                },
+                'typewriter': {
+                    '0%': { width: '0%' },
+                    '100%': { width: '100%' }
+                },
+                'bounce': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-5px)' }
+                },
+                'cursor-blink': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 1.5s ease-out',
+                'typewriter': 'typewriter 2s steps(40, end)',
+                'bounce': 'bounce 0.5s ease-in-out infinite',
+                'cursor-blink': 'cursor-blink 1s linear infinite'
+			},
+            fontFamily: {
+                hopeful: ['Comic Sans MS', 'Comic Sans', 'cursive'],
+                romantic: ['Great Vibes', 'cursive'],
+                funny: ['Bubblegum Sans', 'cursive'], 
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
