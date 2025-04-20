@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useRouter } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -10,18 +10,19 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, theme = null }) => {
-  const router = useRouter();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   
   // This would be replaced with Supabase auth logic
   const isLoggedIn = false;
   
   const handleLoginClick = () => {
-    router.push("/login");
+    navigate("/login");
   };
   
   const handleSignupClick = () => {
-    router.push("/signup");
+    navigate("/signup");
   };
   
   const handleLogout = () => {
@@ -30,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = null }) => {
       title: "Logged out",
       description: "You have been logged out successfully",
     });
-    router.push("/");
+    navigate("/");
   };
 
   return (
@@ -40,7 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = null }) => {
           <div className="flex items-center space-x-2">
             <h1 
               className="text-2xl font-bold cursor-pointer" 
-              onClick={() => router.push("/")}
+              onClick={() => navigate("/")}
             >
               Time Capsule
             </h1>
@@ -70,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = null }) => {
                   <li>
                     <Button 
                       variant="ghost"
-                      onClick={() => router.push("/dashboard")}
+                      onClick={() => navigate("/dashboard")}
                     >
                       Dashboard
                     </Button>
@@ -78,7 +79,7 @@ const Layout: React.FC<LayoutProps> = ({ children, theme = null }) => {
                   <li>
                     <Button 
                       variant="ghost"
-                      onClick={() => router.push("/create")}
+                      onClick={() => navigate("/create")}
                     >
                       Create Capsule
                     </Button>
