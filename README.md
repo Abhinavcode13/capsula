@@ -1,4 +1,4 @@
-## Time Capsule
+## Capsula
 
 **Send heartfelt messages to your future self**, delivered by email or unlocked in-app. Choose a theme that matches your vibe: **Hopeful**, **Romantic**, or **Funny**.
 
